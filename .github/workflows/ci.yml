@@ -21,7 +21,8 @@ jobs:
       - name: Run tests
         run: go test ./... -cover
 
-    name: style
+  style:
+    name: Formatting
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -30,8 +31,8 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-        go-version: "1.23.0"
+          go-version: "1.23.0"
 
       - name: Format
-        uses: test -z $(go fmt ./...)
+        run: test -z "$(go fmt ./...)"
 
