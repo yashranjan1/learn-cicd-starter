@@ -24,7 +24,7 @@ func TestGetAPIKey(t *testing.T) {
 
 	// should fail
 	header.Set("Authorization", "")
-	actual, err = GetAPIKey(header)
+	_, err = GetAPIKey(header)
 
 	if err == nil {
 		t.Error("Should have returned error but retured nil error")
@@ -32,7 +32,7 @@ func TestGetAPIKey(t *testing.T) {
 
 	// should fail pt2
 	header.Set("Authorization", fmt.Sprintf("Bearer: %s %s", expectedAPIKey, expectedAPIKey))
-	actual, err = GetAPIKey(header)
+	_, err = GetAPIKey(header)
 
 	if err == nil {
 		t.Error("Should have returned error but retured nil error")
